@@ -7,6 +7,6 @@ deploy:
   provider: heroku
   api_key:
     secure: eXsd5VoSorwUa7+zDFFa45+OmW9kw8Jq9dlTXT6fuH2T1rwNGmZBAI8G+w7sl0pyGod+RmsgZaNjNsRtjiNGccYq0kF2uIHI6iNs4YwGaQcgjeAe3/9R06DWMBlrxKZvQBK8FZ7rjR9TBU4t6QWunFjSgRm0KMWhPnabVL1dNxc=
-  app: words
+  app: train-words
 notifications:
   email: false
