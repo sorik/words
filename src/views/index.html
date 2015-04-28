@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app="myNews"></html>
+<body>
+  <div ui-view="list"></div>
+  <div><a ui-sref="news.insert">Insert</a></div>
+  <div ui-view="content"></div>
+
+  <script src="jquery/dist/jquery.js"></script>
+  <script src="angular/angular.js"></script>
+  <script src="angular-resource/angular-resource.js"></script>
+  <script src="angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="js/words.js"></script>
+  <script src="js/controller/news-list.js"></script>
+  <script src="js/controller/news-show.js"></script>
+  <script src="js/controller/news-insert.js"></script>
+  <script src="js/controller/news-train.js"></script>
+  <script src="js/directive/word-directives.js"></script>
+  <script src="js/service/news-service.js"></script>
+  <script src="js/service/page-service.js"></script>
+  <link rel="stylesheet" href="css/words.css"></link>
+</body>

@@ -1,0 +1,14 @@
+<div ng-controller='newsListCtrl'>
+    <input type="text" ng-model="criteria">
+    <ul>
+        <li ui-sref-active="selected" ng-repeat='news in currentPage.pageData' ng-class-even="'list-light-gray'" ng-class-odd="'list-dark-gray'">
+            <a ui-sref="news.show({id: news._id})"><span>{{news.title}}</span> @ <span>{{news.timestamp}}</span></a>
+        </li>
+    </ul>
+    <div>
+        <span ng-click="prevPage()">prev</span>
+        <span>{{currentPage.pageNum + 1}} / {{currentPage.maxPageNum + 1}}</span>
+        <span ng-click="nextPage()">next</span>
+    </div>
+    <p ng-if='errorMessage.length > 0' ng-bind='errorMessage'></p>
+</div>

@@ -1,0 +1,39 @@
+{
+  "name": "words",
+  "version": "0.0.1",
+  "description": "App for training words",
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sorik/words.git"
+  },
+  "author": "Sori",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.1.1",
+    "bower": "^1.3.4",
+    "ejs": "^1.0.0",
+    "jade": "^1.3.1",
+    "mongodb": "2.0.26",
+    "monk": "*",
+    "body-parser": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-cli": "~0.1.13",
+    "grunt-run": "^0.3.0",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-karma": "~0.8.3",
+    "jshint-stylish": "~1.0.1",
+    "karma": "~0.12.21",
+    "karma-jasmine": "~0.3.0",
+    "karma-mocha-reporter": "^0.3.1",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "phantomjs": "~1.9.7-15",
+    "jasmine": "~2.1.0"
+  }
+}

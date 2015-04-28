@@ -1,0 +1,21 @@
+{
+  "name": "words",
+  "description": "A starter project for angularjs",
+  "version": "0.0.0",
+  "homepage": "",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "1.2.x",
+    "angular-route": "1.2.x",
+    "angular-ui-router": "0.2.x",
+    "angular-loader": "1.2.x",
+    "bootstrap": "~3.1.1",
+    "angular-mocks": "~1.2.15",
+    "angular-resource": "~1.2.15",
+    "jquery": "2.1.1",
+    "foundation": "^5.2.2",
+    "modernizr": "2.8.2",
+    "fastclick": "1.0.2"
+  }
+}

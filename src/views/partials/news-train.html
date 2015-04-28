@@ -1,0 +1,5 @@
+<div ng-switch on="userAction">
+    <news-original ng-switch-default></news-original>
+    <a ng-click="startTraining()">Start training</a>
+    <news-training ng-switch-when="training"></news-training>
+</div>

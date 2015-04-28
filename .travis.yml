@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '0.10'
+install: npm install
+before_script: grunt test
+deploy:
+  provider: heroku
+  api_key:
+    secure: Tp1vHlYVtT2pCQE6wMDvXeNS10UPFAqdbvMAPHO9AQ9fabHikbwfy/QvDOqw/5xbF1ErruSnFUhhzCLu4nrWUyVPn1taxMl50TBNXZOYi7GlX3idShjzeuUieHvdWSkkzx3R2NiHTuxEkluo2lQoiuASjTaRanxnfu4s79/ymcA=
+  app: words
+notifications:
+  email: false

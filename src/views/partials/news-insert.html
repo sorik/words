@@ -1,0 +1,14 @@
+<form name="insertForm" novalidate>
+    <label for='title'>Title</label>
+    <input name='title' type='text' ng-model='news.title' required>
+    <p ng-show="showFormError(insertForm.title, 'required')">
+        Title is required
+    </p>
+    <label for="content">Content</label>
+    <textarea name='content' ng-model="news.content" required></textarea>
+    <p ng-show="showFormError(insertForm.content, 'required')">
+        Content is required
+    </p>
+    <button ng-disabled='!canSave()' ng-click='addNews()'>Save</button>
+    <p ng-if="savingResult.length > 0" ng-bind="savingResult"></p>
+</form>
