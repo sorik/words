@@ -2,3 +2,4 @@
 
 -- personal project for learning nodejs, angularjs, and grunt
 -- designed to train words using news articles
+-- add something to trigger building in travis-ci
