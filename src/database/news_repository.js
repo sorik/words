@@ -7,7 +7,7 @@ module.exports = function(app){
 
     var id = req.param('id');
     db.get('newstestcollection')
-      .findById(id, function(err, doc) {
+      .findOne({_id: id}, function(err, doc) {
         if(err) {
           res.send(500, {message: 'mongodb returns error' + err.message});
         } else {
