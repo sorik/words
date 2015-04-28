@@ -6,7 +6,7 @@ before_script: grunt test
 deploy:
   provider: heroku
   api_key:
-    secure: Tp1vHlYVtT2pCQE6wMDvXeNS10UPFAqdbvMAPHO9AQ9fabHikbwfy/QvDOqw/5xbF1ErruSnFUhhzCLu4nrWUyVPn1taxMl50TBNXZOYi7GlX3idShjzeuUieHvdWSkkzx3R2NiHTuxEkluo2lQoiuASjTaRanxnfu4s79/ymcA=
+    secure: m1uZJ3EwaP105dewlS1wgp5eUartqYwXo7kisrlLI8YJ2SRtZ4hw1ECIDMW9c7ZXrru9qXjt79Y4BgIu38DHB+QRlBvfaUkSgJimonranRgFWVdRE004mu2+NIGW4nhN3ISTEdPsJrlAHOr5/SefCf88xJwykl77PUpB6uUBJbs=
   app: words
 notifications:
   email: false
