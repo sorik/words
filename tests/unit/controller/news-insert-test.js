@@ -16,6 +16,12 @@ describe('newsInsertCtrl', function() {
 			$timeout: $timeout,
 			NewsService: NewsService
 		});
+
+		scope.insertForm = {
+			$setPristine: function() {
+				return;
+			}
+		};
 	}));
 
 	describe('addNews', function() {
