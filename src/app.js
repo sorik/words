@@ -4,7 +4,7 @@ var path = require('path');
 
 require('mongodb');
 var monk = require('monk');
-var db = monk(process.env.MONGOHQ_URL || 'localhost:27017/words');
+var db = monk(process.env.MONGOLAB_URI || 'localhost:27017/words');
 
 var bodyParser = require('body-parser');
 
