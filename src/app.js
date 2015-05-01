@@ -4,7 +4,7 @@ var path = require('path');
 
 require('mongodb');
 var monk = require('monk');
-var db = monk(process.env.MONGOLAB_URI || 'localhost:27017/words');
+var db = monk(process.env.MONGOLAB_URI || process.env.DB_PORT_27017_TCP_ADDR || 'localhost:27017/words');
 
 var bodyParser = require('body-parser');
 
