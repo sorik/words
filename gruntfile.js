@@ -62,6 +62,11 @@ module.exports = function(grunt) {
         src: ['./tests/{,**/}*.js']
       }
     },
+    clean: {
+      dist: {
+        src: ['dist/{,*/}*']
+      }
+    },
     karma: {
       unit: {
         configFile: 'tests/karma.conf.js',
@@ -74,6 +79,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-bower-task');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-karma');
 
   grunt.registerTask('serve-local',
@@ -82,4 +88,6 @@ module.exports = function(grunt) {
     ['bower:install', 'jshint:source', 'run:mongodb','run:app', 'watch']);
   grunt.registerTask('test',
     ['jshint:test', 'karma:unit']);
+  grunt.registerTask('build',
+    ['jshint:source', 'bower:install', 'clean:dist']);
 };
