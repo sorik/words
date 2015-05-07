@@ -5,10 +5,15 @@
   <div><a ui-sref="news.insert">Insert</a></div>
   <div ui-view="content"></div>
 
+<!-- build:js(bower_components) scripts/vendor.js -->
+<!-- bower:js -->
   <script src="jquery/dist/jquery.js"></script>
   <script src="angular/angular.js"></script>
   <script src="angular-resource/angular-resource.js"></script>
   <script src="angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbuild -->
+
+<!-- build:js(src) scripts/scripts.js -->
   <script src="scripts/words.js"></script>
   <script src="scripts/controller/news-list.js"></script>
   <script src="scripts/controller/news-show.js"></script>
@@ -17,5 +22,9 @@
   <script src="scripts/directive/word-directives.js"></script>
   <script src="scripts/service/news-service.js"></script>
   <script src="scripts/service/page-service.js"></script>
+<!-- endbuild -->
+
+<!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css"></link>
+<!-- endbuild -->
 </body>

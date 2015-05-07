@@ -82,6 +82,10 @@ module.exports = function(grunt) {
         }
       }
     },
+    usemin: {
+      html: ['dist/{,*/}*.html'],
+      css: ['dist/styles/{,*}*.css']
+    },
     concurrent: {
       dist: [
         'buildJs',
@@ -193,5 +197,5 @@ module.exports = function(grunt) {
     ['jshint:test', 'karma:unit']);
 
   grunt.registerTask('build',
-    ['jshint:source', 'bower:install', 'clean:dist', 'copy:preDist', 'concurrent:dist', 'copy:dist', 'filerev']);
+    ['jshint:source', 'bower:install', 'clean:dist', 'copy:preDist', 'concurrent:dist', 'copy:dist', 'filerev', 'usemin']);
 };
