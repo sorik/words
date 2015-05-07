@@ -94,6 +94,16 @@ module.exports = function(grunt) {
         cwd: 'src/',
         src: 'styles/{,*/}*.css',
         dest: '.tmp/'
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src/',
+            src: ['*.html', '{,**/}*.html'],
+            dest: 'dist/'
+          }
+        ]
       }
     },
     concat: {
@@ -101,8 +111,10 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['src/scripts/{,*/}*.js'],
-        dest: 'dist/scripts/scripts.js'
+        files: {
+          'dist/scripts/scripts.js': ['src/scripts/{,*/}*.js'],
+          'dist/scripts/vendor.js': ['bower_components/{,*/}*.js']
+        }
       }
     },
     uglify: {
@@ -110,9 +122,14 @@ module.exports = function(grunt) {
         banner: '/*! scripts <%= grunt.template.today("dd-mm-yyyy") %> */\n'
       },
       dist: {
-        files: {
-          'dist/scripts/scripts.js': ['<%= concat.dist.dest %>']
-        }
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/scripts/',
+            src: '*.js',
+            dest: 'dist/scripts/'
+          }
+        ]
       }
     },
     autoprefixer: {
@@ -165,5 +182,5 @@ module.exports = function(grunt) {
   grunt.registerTask('test',
     ['jshint:test', 'karma:unit']);
   grunt.registerTask('build',
-    ['jshint:source', 'bower:install', 'clean:dist', 'copy:preDist', 'concurrent:dist']);
+    ['jshint:source', 'bower:install', 'clean:dist', 'copy:preDist', 'concurrent:dist', 'copy:dist']);
 };
