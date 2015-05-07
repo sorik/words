@@ -67,6 +67,45 @@ module.exports = function(grunt) {
         src: ['dist/{,*/}*']
       }
     },
+    useminPrepare: {
+      html: 'src/index.html',
+      options: {
+        dest: 'dist',
+        flow: {
+          html: {
+            steps: {
+              js: ['concat', 'uglifyjs'],
+              css: ['cssmin']
+            },
+            post: {}
+          }
+        }
+      }
+    },
+    concurrent: {
+      dist: [
+        'buildJs'
+      ]
+    },
+    concat: {
+      options: {
+        separator: ';'
+      },
+      dist: {
+        src: ['src/public/js/{,*/}*.js'],
+        dest: 'dist/scripts/scripts.js'
+      }
+    },
+    uglify: {
+      options: {
+        banner: '/*! scripts <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/scripts/scripts.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    },
     karma: {
       unit: {
         configFile: 'tests/karma.conf.js',
@@ -75,12 +114,10 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-run');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-karma');
+  require('load-grunt-tasks')(grunt);
+
+  grunt.registerTask('buildJs',
+    ['useminPrepare', 'concat', 'uglify']);
 
   grunt.registerTask('serve-local',
     ['bower:install', 'jshint:source', 'run:localMongodb','run:app', 'watch']);
@@ -89,5 +126,5 @@ module.exports = function(grunt) {
   grunt.registerTask('test',
     ['jshint:test', 'karma:unit']);
   grunt.registerTask('build',
-    ['jshint:source', 'bower:install', 'clean:dist']);
+    ['jshint:source', 'bower:install', 'clean:dist', 'useminPrepare', 'concurrent:dist']);
 };
