@@ -159,6 +159,14 @@ module.exports = function(grunt) {
         ]
       }
     },
+    filerev: {
+      dist: {
+        src: [
+          'dist/scripts/{,*/}*.js',
+          'dist/styles/{,*/}*.css',
+        ]
+      }
+    },
     karma: {
       unit: {
         configFile: 'tests/karma.conf.js',
@@ -177,10 +185,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve-local',
     ['bower:install', 'jshint:source', 'run:localMongodb','run:app', 'watch']);
+
   grunt.registerTask('serve',
     ['bower:install', 'jshint:source', 'run:mongodb','run:app', 'watch']);
+
   grunt.registerTask('test',
     ['jshint:test', 'karma:unit']);
+
   grunt.registerTask('build',
-    ['jshint:source', 'bower:install', 'clean:dist', 'copy:preDist', 'concurrent:dist', 'copy:dist']);
+    ['jshint:source', 'bower:install', 'clean:dist', 'copy:preDist', 'concurrent:dist', 'copy:dist', 'filerev']);
 };
