@@ -10,8 +10,6 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-app.set('views', path.join(__dirname, 'views'));
-
 app.use(function(req, res, next) {
     req.db = db;
     next();
@@ -19,7 +17,6 @@ app.use(function(req, res, next) {
 
 app.use(express.static(__dirname));
 app.use(express.static('bower_components'));
-app.use(express.static(__dirname + '/views'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());

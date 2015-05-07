@@ -13,7 +13,7 @@ angular.module('myNews', ['ngResource', 'ui.router'])
                 url: '/',
                 views: {
                     'list': {
-                        templateUrl: 'partials/news-list.html',
+                        templateUrl: 'views/news-list.html',
                         controller: 'newsListCtrl'
                     }
                 }
@@ -22,7 +22,7 @@ angular.module('myNews', ['ngResource', 'ui.router'])
                 url: ':id',
                 views: {
                     'content@': {
-                        templateUrl: 'partials/news-show.html',
+                        templateUrl: 'views/news-show.html',
                         controller: 'newsShowCtrl'
                     }
                 }
@@ -31,7 +31,7 @@ angular.module('myNews', ['ngResource', 'ui.router'])
                 url: 'insert',
                 views: {
                     'content@': {
-                        templateUrl: 'partials/news-insert.html',
+                        templateUrl: 'views/news-insert.html',
                         controller: 'newsInsertCtrl'
                     }
                 }
@@ -40,7 +40,7 @@ angular.module('myNews', ['ngResource', 'ui.router'])
                 url: ':id/train',
                 views: {
                     'content@': {
-                        templateUrl: 'partials/news-train.html',
+                        templateUrl: 'views/news-train.html',
                         controller: 'newsTrainCtrl'
                     }
                 }
