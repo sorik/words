@@ -11,8 +11,8 @@ module.exports = function(config) {
             'bower_components/angular-resource/angular-resource.js',
             'bower_components/angular-mocks/angular-mocks.js',
             'bower_components/angular-ui-router/release/angular-ui-router.js',
-            'src/public/js/words.js',
-            'src/public/js/{,*/}*.js',
+            'src/scripts/words.js',
+            'src/scripts/{,*/}*.js',
             'tests/unit/{,*/}*.js'
         ],
 
