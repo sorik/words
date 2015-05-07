@@ -1,6 +1,6 @@
 angular.module('myNews', ['ngResource', 'ui.router'])
     .constant('NEWS_PAGE', {
-        pageSize: 1,
+        pageSize: 2,
         initialPage: 0
     })
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
