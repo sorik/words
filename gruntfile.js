@@ -53,7 +53,7 @@ module.exports = function(grunt) {
         reporter: require('jshint-stylish')
       },
       source: {
-        src: ['gruntfile.js', './src/public/js/{,*/}*.js', './src/database/{,*/}*.js']
+        src: ['gruntfile.js', './src/scripts/{,*/}*.js', './src/database/{,*/}*.js']
       },
       test: {
         options: {
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
     },
     clean: {
       dist: {
-        src: ['dist/{,*/}*']
+        src: ['.tmp', 'dist/{,*/}*']
       }
     },
     useminPrepare: {
@@ -84,15 +84,24 @@ module.exports = function(grunt) {
     },
     concurrent: {
       dist: [
-        'buildJs'
+        'buildJs',
+        'buildCss'
       ]
+    },
+    copy: {
+      preDist: {
+        expand: true,
+        cwd: 'src/',
+        src: 'styles/{,*/}*.css',
+        dest: '.tmp/'
+      }
     },
     concat: {
       options: {
         separator: ';'
       },
       dist: {
-        src: ['src/public/js/{,*/}*.js'],
+        src: ['src/scripts/{,*/}*.js'],
         dest: 'dist/scripts/scripts.js'
       }
     },
@@ -104,6 +113,33 @@ module.exports = function(grunt) {
         files: {
           'dist/scripts/scripts.min.js': ['<%= concat.dist.dest %>']
         }
+      }
+    },
+    autoprefixer: {
+      options: {
+        browers: ['last 1 versions']
+      },
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: '.tmp/styles/',
+            src: '{,*/}*.css',
+            dest: '.tmp/styles/'
+          }
+        ]
+      }
+    },
+    cssmin: {
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: '.tmp/styles/',
+            src: '{,*/}*.css',
+            dest: 'dist/styles/'
+          }
+        ]
       }
     },
     karma: {
@@ -119,6 +155,9 @@ module.exports = function(grunt) {
   grunt.registerTask('buildJs',
     ['useminPrepare', 'concat', 'uglify']);
 
+  grunt.registerTask('buildCss',
+    ['useminPrepare', 'autoprefixer', 'cssmin']);
+
   grunt.registerTask('serve-local',
     ['bower:install', 'jshint:source', 'run:localMongodb','run:app', 'watch']);
   grunt.registerTask('serve',
@@ -126,5 +165,5 @@ module.exports = function(grunt) {
   grunt.registerTask('test',
     ['jshint:test', 'karma:unit']);
   grunt.registerTask('build',
-    ['jshint:source', 'bower:install', 'clean:dist', 'useminPrepare', 'concurrent:dist']);
+    ['jshint:source', 'bower:install', 'clean:dist', 'copy:preDist', 'concurrent:dist']);
 };
